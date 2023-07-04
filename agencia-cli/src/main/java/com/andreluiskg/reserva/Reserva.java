@@ -5,6 +5,10 @@ import com.andreluiskg.cliente.Cliente;
 public class Reserva {
 	
 	private Cliente cliente;
+	
+	public Reserva() {
+		
+	}
 
 	private Reserva(Cliente cliente) {
 		this.cliente=cliente;

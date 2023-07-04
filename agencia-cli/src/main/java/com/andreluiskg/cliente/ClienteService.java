@@ -1,12 +1,14 @@
 package com.andreluiskg.cliente;
 
-import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
+import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 @RegisterRestClient(baseUri = "http://localhost:8080/cliente")
 public interface ClienteService {
@@ -14,6 +16,11 @@ public interface ClienteService {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response newCliente(Cliente cliente);
+	public String newCliente(Cliente cliente);
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("findById")
+	public Cliente findById(@QueryParam("id") long id);
 
 }

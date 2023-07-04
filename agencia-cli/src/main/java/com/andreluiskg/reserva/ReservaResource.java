@@ -1,30 +1,36 @@
 package com.andreluiskg.reserva;
 
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import com.andreluiskg.cliente.Cliente;
-
-import jakarta.inject.Inject;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
+import com.andreluiskg.cliente.ClienteService;
 
 @Path("/reserva-cli")
 public class ReservaResource {
-	
+
 	@Inject
 	@RestClient
 	ReservaService reservaService;
-	
+
+	@Inject
+	@RestClient
+	ClienteService clienteService;
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
+	@Path("newReserva")
 	public String newReserva() {
+		Cliente cliente = clienteService.findById(3);
+//		Cliente cliente = Cliente.of(2, "Maria");
+		Reserva reserva = Reserva.of(cliente);
 		
-		Cliente cliente = Cliente.of("Remoto");
-
-		return reservaService.newReserva(cliente);
+		return reservaService.newReserva(reserva);
 	}
 
 }
