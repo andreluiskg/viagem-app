@@ -17,35 +17,34 @@ import jakarta.ws.rs.core.Response.Status;
 @Path("/cliente")
 public class ClienteResource {
 
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<Cliente> get() {
-		return Cliente.listAll();
-	}
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Cliente> get(){
+        return Cliente.listAll();
+    }
 
-	@GET
-	@Path("findById")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Cliente findById(@QueryParam("id") long id) {
-		return Cliente.findById(id);
-	}
+    @GET
+    @Path("findById")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Cliente findById(@QueryParam("id") long id) {//throws InterruptedException{
+        return Cliente.findById(id);
+    }
 
-	@Transactional
-	@DELETE
-	@Path("deleteById")
-	public void deleteById(@QueryParam("id") long id) {
-		Cliente.deleteById(id);
-	}
+    @Transactional
+    @DELETE
+    @Path("deleteById")
+    public void deleteById(@QueryParam("id") long id){
+        Cliente.deleteById(id);
+    }
 
-	@Transactional
-	@POST
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response newCliente(Cliente cliente) {
-//		cliente.id = null;
-		cliente.persist();
+    @Transactional
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response newCliente(Cliente cliente){
+        cliente.id = null;
+        cliente.persist();
 
-		return Response.status(Status.CREATED).entity(cliente).build();
-	}
-
+        return Response.status(Status.CREATED).entity(cliente).build();
+    }
 }

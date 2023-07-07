@@ -29,24 +29,4 @@ public class ReservaResource {
 
 		return reserva;
 	}
-
-//	@Inject
-//	@RestClient
-//	ReservaService reservaService;
-//
-//	@Inject
-//	@RestClient
-//	ClienteService clienteService;
-//
-//	@GET
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Path("newReserva")
-//	public String newReserva() {
-//		Cliente cliente = clienteService.findById(3);
-////		Cliente cliente = Cliente.of(2, "Maria");
-//		Reserva reserva = Reserva.of(cliente);
-//		
-//		return reservaService.newReserva(reserva);
-//	}
-
 }

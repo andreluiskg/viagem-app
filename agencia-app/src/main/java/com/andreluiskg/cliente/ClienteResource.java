@@ -47,5 +47,4 @@ public class ClienteResource {
 
 		return Response.status(Status.CREATED).entity(cliente).build();
 	}
-
 }

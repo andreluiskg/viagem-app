@@ -7,5 +7,5 @@ import jakarta.persistence.Entity;
 public class Reserva extends PanacheEntity {
 
 	public long idCliente;
-	
+
 }
