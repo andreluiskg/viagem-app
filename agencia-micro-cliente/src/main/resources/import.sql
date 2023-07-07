@@ -1,0 +1,15 @@
+--CREATE SEQUENCE hibernate_sequence;
+--INSERT INTO Cliente(id,nome) VALUES (nextval('hibernate_sequence'),'Joao');
+--INSERT INTO Cliente(id,nome) VALUES (nextval('hibernate_sequence'),'Maria');
+--INSERT INTO Cliente(id,nome) VALUES (nextval('hibernate_sequence'),'Jose');
+--INSERT INTO Cliente(id,nome) VALUES (nextval('hibernate_sequence'),'Ana');
+--CREATE SEQUENCE HIBERNATE_SEQUENCE START WITH 1 INCREMENT BY 1;
+INSERT INTO Cliente(id,nome) VALUES (91,'Joao');
+INSERT INTO Cliente(id,nome) VALUES (92,'Maria');
+INSERT INTO Cliente(id,nome) VALUES (93,'Jose');
+INSERT INTO Cliente(id,nome) VALUES (94,'Ana');
+--INSERT INTO Cliente(nome) VALUES ('Joao');
+--INSERT INTO Cliente(nome) VALUES ('Maria');
+--INSERT INTO Cliente(nome) VALUES ('Jose');
+--INSERT INTO Cliente(nome) VALUES ('Ana');
+--CREATE SEQUENCE HIBERNATE_SEQUENCE START WITH 1 INCREMENT BY 1;
